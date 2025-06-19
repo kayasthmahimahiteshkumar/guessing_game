@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: pink;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Guessing Game (1 to 100)</h2>
+        <form action="{{ url_for('guess') }}" method="POST">
+            <input type="number" name="guess" placeholder="Your guess" required>
+            <button type="submit">Guess</button>
+        </form>
+        {% if message %}
+        <div class="message">{{ message }}</div>
+        {% endif %}
+        <br>
+        <a href="/">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
